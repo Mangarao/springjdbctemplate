@@ -35,4 +35,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				BeanPropertyRowMapper.newInstance(Employee.class),empId );
 	}
 
+	@Override
+	public int updateEmployee(Employee emp) {
+		return jdbcTemplate.update("update employee set name=?, age=? where id=?",new Object[] { emp.getName(), emp.getAge(),emp.getId() });
+	}
+
+	@Override
+	public int deleteEmployee(int empId) {
+		return jdbcTemplate.update("delete from employee where id =?", empId);
+	}
+
 }

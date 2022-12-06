@@ -15,7 +15,7 @@ public class SpringjdbctemplateApplication {
 		ApplicationContext appContext = SpringApplication.run(SpringjdbctemplateApplication.class, args);
 		EmployeeService empService = appContext.getBean(EmployeeService.class);
 		// 1. Code to insert employee record
-		int count = empService.insertEmployee(new Employee(103, "Aarohi", 6));
+		int count = empService.insertEmployee(new Employee(104, "Jaga", 21));
 		System.out.println(count + "(s) inserted");
 
 		// 2. Code to call All Employees
@@ -28,9 +28,20 @@ public class SpringjdbctemplateApplication {
 
 		// 3. code to get emp based on given id
 
-		Employee e = empService.getEmployeeById(103);
-		System.out.println(e);
+//		Employee e = empService.getEmployeeById(103);
+//		System.out.println(e);
+		
+		count = empService.updateEmployee(new Employee(104, "Jaghadeesan", 22));
+		System.out.println("\n" + count + " Row Updated");
+		
+//		e = empService.getEmployeeById(104);
+//		System.out.println(e);
+//		
+		count = empService.deleteEmployee(104);
+		System.out.println("\n" + count + " Row Updated");
 
+		List<Employee> e = empService.getEmployees();
+		e.forEach(System.out::println);
 	}
 
 }

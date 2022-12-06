@@ -31,4 +31,17 @@ public class EmployessServiceImpl implements EmployeeService {
 		return employeeDao.getEmployeeById(empId);
 	}
 
+	@Override
+	public int updateEmployee(Employee e) {
+		return employeeDao.updateEmployee(e);
+				
+	}
+
+	@Override
+	public int deleteEmployee(int empId) {
+		// TODO Auto-generated method stub
+		return employeeDao.deleteEmployee(empId);
+				
+	}
+
 }
